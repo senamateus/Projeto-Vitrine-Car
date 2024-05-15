@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SL VITRINE CAR</title>
+    <link rel="stylesheet" href="../static/css/premium.css">
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Página Inicial</a></li>
+                <li class="btnlogin"><a href="/perfilVendedor">Minha Página</a></li>
+                <li class="btncadastrar"><a href="/sair">Sair</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    
+    <section id="busca">
+        <h2>PREMIUM</h2>
+        <form>
+            <input type="text" id="campo-busca" placeholder="Pesquise o nome do carro ou palavra-chave...">
+        </form>
+    </section>
+
+    
+
+    <section id="produtos">
+        <h2 id="tituloh2">TODOS OS VEÍCULOS</h2>
+        <div class="produtos">
+                {% if produtos %}
+                    {% for produto in produtos %}
+                    
+                        <div class="produto">
+                            <img src="{{url_for('static', filename='produtos/'+ produto[2] )}}" alt="imegem do produto:{{produto}}" id="imagem_doCarro"  width="90%" height="120">
+                                <h2 id="h2Produto">{{produto[1]}}</h2>
+                                <textarea id="texto" readonly>{{produto[3]}}</textarea>
+                                <p>VENDEDOR: {{produto[6]}}</p>
+                                <p>TELEFONE: {{produto[7]}}</p>
+                                <p>PREÇO: R$ {{produto[4]}}</p>
+                                
+                        </div>
+                    {% endfor %}
+                {% endif %}
+        </div>
+    </section>
+
+    
+
+    <script>
+        const campo_busca = document.querySelector("#campo-busca");
+        const todos_produtos = document.querySelector("#produtos");
+        const lista_produtos_original = Array.from(todos_produtos.querySelectorAll(".produto"));
+    
+        campo_busca.addEventListener("input", () => {
+            const termoBusca = campo_busca.value.trim().toLowerCase();
+            lista_produtos_original.forEach(produto => {
+                const nome_produto = produto.querySelector('h2').textContent.toLowerCase();
+                const descricao = produto.querySelector('p').textContent.toLowerCase();
+                if (nome_produto.includes(termoBusca) || descricao.includes(termoBusca)) {
+                    produto.style.display = "block";
+                } else {
+                    produto.style.display = "none";
+                }
+            });
+        });
+    </script>
+    
+
+
+</body>
+
+</html>

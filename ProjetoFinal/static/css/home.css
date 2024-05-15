@@ -1,0 +1,227 @@
+/* AQUI É O RODAPÉ DE CIMA */
+
+nav ul li a{
+    text-decoration: none;
+    color: white;
+    padding: 10px 15px;
+    position: relative;
+    overflow: hidden;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: transparent; /* Inicialmente transparente */
+    transition: width 0.9s ease; /* Transição suave */
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+    background-color: rgb(204, 150, 0); /* Cor da linha ao passar o mouse */
+}
+
+nav ul{
+    list-style: none;
+    margin: 1;
+    padding: 20px;
+    background-color: rgb(129, 111, 87);
+    color: white;
+    height: 30px;
+    width: 50%;
+    border-radius: 20px;
+    position: fixed;
+    left: 22%;
+}
+
+nav{
+    text-align: center;
+}
+
+nav a{
+    color: white;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+/*AQUI É A SESSÃO PESQUISAR CARROS*/
+#busca{
+    background-color: transparent;
+    padding: 50px;
+}
+
+#busca h2{
+    text-align: center;
+    color: rgb(255, 255, 255);
+}
+
+#campo-busca{
+    width: 70%;
+    padding: 12px 10px;
+    margin: 8px 10px 8px 170px;
+    box-sizing: border-box;
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 14px;
+    font-size: 16px;
+}
+
+/*DIV DOS PRODUTOS*/
+.produtos{
+    margin: 5% auto 10% auto;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+
+
+#produtos{
+    background-color: transparent;
+}
+
+#h2Produto{
+    text-align: center;
+    color: rgb(0, 0, 0);
+}
+
+
+#texto {
+    width: 80%; /* Define a largura do textarea como 100% do seu contêiner */
+    height: 70px; /* Define a altura do textarea em pixels */
+    resize: vertical; /* Permite a redimensionamento vertical do textarea */
+}
+
+#texto {
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 4px;
+}
+
+
+
+.produto{
+    display: inline-block;
+    width: 25%;
+    border: 2px solid rgb(0, 0, 0);
+    margin: 10px 10px;
+    border-radius: 15px;
+    background-color: #ffffff;
+}
+
+.produto h2 {
+    margin: 10px 0;
+    font-size: 1.2em;
+    color: #333333;
+}
+
+.produto textarea {
+    width: 90%;
+    height: 80px;
+    margin: 10px 0;
+    resize: none;
+    border: none;
+    background-color: #f9f9f9;
+}
+
+.produto p {
+    color: #666666;
+    margin: 5px 0;
+    max-height: 50px; /* Limite a altura do parágrafo para evitar que o texto seja muito longo */
+    overflow: hidden;
+}
+
+#imagem_doCarro {
+    width: 100%; /* Define a largura para ocupar toda a largura do contêiner */
+    height: 180px; /* Permite que a altura seja ajustada automaticamente, mantendo a proporção original da imagem */
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+
+body{
+    font-family: Arial, Helvetica, sans-serif   ;
+    background-image: url("../imagensfundo/fundoloja.jpg");
+    background-size: cover; /* Para cobrir toda a área do corpo */
+    background-position: center; /* Para centralizar a imagem */
+    background-repeat: no-repeat; /* Para evitar repetição da imagem */
+
+}
+
+header{
+    margin-left: 300px;
+    height: 30px;
+}
+
+
+#alerta{
+    background-color: yellow;
+    color: red;
+    font-size: 30px;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+
+
+nav li{
+    display: inline-block;
+    margin-right: 20px;
+}
+
+
+#tituloh2{
+        text-align: center;
+        color: rgb(255, 255, 255);
+}
+
+
+#loginCard {
+    background-color: lightgreen;
+    padding: 1px;
+    text-decoration: none; /* Remover o sublinhado padrão */
+    color: black; /* Cor do texto */
+    transition: background-color 0.3s; /* Efeito de transição suave */
+}
+
+#loginCard:hover {
+    background-color: green;
+    color: white; /* Mudar a cor do texto quando passar o mouse */
+}
+
+#busca h2{
+    font-size: 24px;
+    margin-bottom: 20px;
+    margin-top: 40px;
+}
+
+#busca button[type="submit"]{
+    padding: 10px;
+    background-color:rgb(164, 175, 164);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#busca button:hover{
+    color: yellow;
+}
+
+
+form input[type="submit"]{
+    background-color: #4caf50;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 5px;
+}
+
+form input[type="submit"]:hover{
+    background-color: rgb(4, 90, 18);
+}

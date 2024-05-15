@@ -1,0 +1,94 @@
+@import url(home.css);
+
+.titulo{
+    margin-top: 80px;
+    text-align: center;
+}
+
+form h1{
+    color: rgb(255, 255, 255);
+}
+
+form{
+    background: transparent;
+    backdrop-filter: blur(35px);
+    border-radius: 5px;
+    padding: 20px;
+    max-width: 400px;
+    margin: 5% auto; /* Modifiquei o valor de margin-top e margin-bottom para 5% */
+    margin-top: 2%;
+    margin-bottom: 5%;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.9);
+}
+
+input[type="submit"]:hover{
+    background-color: rgb(4, 90, 18);
+}
+
+label{
+    display: block;
+    font-size: 19px;
+    margin-bottom: 5px;
+    color: white;
+}
+
+input[type="password"], input[type="email"]{
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 2px solid rgb(94, 92, 92);;
+    margin-bottom: 10px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+input[type="submit"]{
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.esqueceu-senha{
+    font-size: 14px;
+    float: right;
+    margin-top: 15px;
+}
+
+a{
+    margin-right: 155px;
+}
+
+.btncadastrar{
+    position: absolute;
+    top: 22px;
+    right: 0;
+    margin-right: 7%;
+}
+
+body {
+    background-image: url("../imagensfundo/foto-seq-26-1183213025-avv-1604410306-dt-11-img-0402-1654306222.jpg");
+    background-size: cover; /* Para cobrir toda a área do corpo */
+    background-position: center; /* Para centralizar a imagem */
+    background-repeat: no-repeat; /* Para evitar repetição da imagem */
+}
+
+.titulo{
+    color: white;
+}
+
+#alerta{
+    background: linear-gradient(to bottom, #ff7f7f, #ff0000);
+    border-radius: 8px;
+    margin-bottom: 15px;
+    text-align: center;
+    color: white;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    padding: 10px 20px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    border: 2px solid #ff0000;
+}

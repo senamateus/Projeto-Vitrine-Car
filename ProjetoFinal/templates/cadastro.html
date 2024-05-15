@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SL VITRINE CAR/CADASTRO</title>
+    <link rel="stylesheet" href="../static/css/cadastro.css">
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/" id="pgInicial">Página Inicial</a></li>
+                <li class="btnlogin"><a href="/loginVendedor" id="pgLogin">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <form action="/cadastroVendedor" id="vendedorCadastro" method="post">
+        <h1>Cadastro Vendedor</h1>
+        <p id="msgErro">AS SENHAS NÃO SÃO IGUAIS !!!</p>
+        <label for="emailVendedor">Email</label>
+        <input type="email" name="emailVendedor" id="emailVendedor" placeholder="Digite seu email" required>
+        <label for="nomeVendedor">Nome</label>
+        <input type="text" name="nomeVendedor" id="nomeVendedor" placeholder="Digite seu nome" required>
+        <label for="telefoneVendedor">Telefone</label>
+        <input type="text" name="telefoneVendedor" id="telefoneVendedor" placeholder="Exemplo: (61) 993895609" required>
+        <label for="senhaVendedor">Senha</label>
+        <input type="password" name="senhaVendedor" id="senhaVendedor" placeholder="Digite sua senha" required>
+        <label for="repetirSenhaVendedor">Repita a senha</label>
+        <input type="password" name="repetirSenhaVendedor" id="repetirSenhaVendedor" placeholder="Digite novamente sua senha" required>
+        <input type="submit" value="Enviar">
+    </form>
+
+
+    <footer>
+        <p> &copy; SL VITRINECAR // ANUNCIE O SEU VEÍCULO </p>
+    </footer>
+
+    <script src="../static/javascript/cadastro.js"></script>
+
+
+</body>
+
+</html>

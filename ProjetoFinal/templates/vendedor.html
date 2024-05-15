@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SL VITRINE CAR/PERFIL</title>
+    <link rel="stylesheet" href="../static/css/vendedor.css">
+</head>
+
+<body>
+    
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/vendedorPremium" class="btPaginaInicial">Página Premium</a></li>
+                <li class="sair"><a href="/sair">Sair</a></li>
+            </ul>
+        </nav>
+    </header>    
+
+    <h1 class="titulo" id="titulo"> Seus Carros </h1>
+
+    {% set menssagens = get_flashed_messages() %}
+        {% if menssagens %}
+        <div id="alerta">
+            {{ menssagens[0] }} 
+        </div>
+    {% endif %}
+
+    <main>
+        <aside class="perfil">
+            {% if not foto %}
+            <img src="../static/arquivos/perfil.png" alt="foto do vendedor" title="Enviar foto" width="100px"
+                id="foto_vendedor">
+            {% else %}
+
+            <img  src="{{ url_for('static', filename='fotoperfil/' + foto) }}" alt="foto do vendedor" title="Mudar foto"
+                width="200" height="150" id="foto_vendedor">
+            {% endif %}
+
+
+            <h1 class="nome">{{ nome }}</h1>
+            <h3 class="menu_perfil" id="escolha_formulario_senha">Alterar senha</h3>
+            <h3 class="menu_perfil" id="escolha_formulario_produtos">Enviar carros</h3>
+            <h3 class="apagar_conta" id="apagar_conta">Apagar conta</h3>
+        </aside>
+
+        <div id="formulario_produtos" class="formulario_produtos">
+            <form action="novo_produto" id="enviar_produtos" method="post" enctype="multipart/form-data">
+                <label for="foto">Foto</label>
+                <input type="file" name="foto" id="foto">
+                <label for="nome">Nome</label>
+                <input type="text" name="nome" id="nome">
+                <label for="preco">Preço</label>
+                <input type="text" name="preco" id="preco">
+                <label for="descricao">Descrição</label>
+                <input type="text" name="descricao" id="descricao">
+                <input type="hidden" name="emailUsuario" value="{{ email }}">
+                <input type="submit" value="Enviar">
+            </form>
+        </div>
+
+        <div id="produtos" class="produtos">
+            {% if produtos  %}
+                {% for produto in produtos %}
+                    <div class="produto">
+                        <img src="{{ url_for('static', filename='produtos/' + produto[2] )}}" id="img_produto" alt="{{produto}}" width="95%" height="160">
+                        <h2>{{produto[1]}}</h2>
+                        <textarea id="texto" readonly>{{produto[3]}}</textarea>
+                        <p>Preço: R$ {{produto[4]}}</p>
+
+                        <button id="Editar">Editar</button>
+
+                        <form action="/excluir_produto" method="post">
+                            <input type="hidden" name="nomeProduto" value="{{produto}}">
+                            <input type="hidden" name="emailUsuario" value="{{email}}">
+                            <input type="submit" id="excluir" value="Excluir">
+                        </form>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+
+        <div id="editar-produto">
+            {% if produtos  %}
+                {% for produto in produtos %}
+                    <img src="{{ url_for('static', filename='produtos/' + produto[2] )}}"  alt="imagem do produto" id="imagem-produto" width="230" height="350">
+                    <form action="/editar_produto" id="form-editar-produto" method="post">
+                        <label for="editar_nome">Modelo:</label>
+                        <input type="text" name="editar_nome" id="editar_nome" value="{{produto[1]}}">
+                        <br>
+                        <label for="editar_preco">Preço:</label>
+                        <input type="text" name="editar_preco" id="editar_preco" value="{{produto[4]}}">
+                        <br>
+                        <label for="editar_descricao">Descrição:</label>
+                        <input type="text" name="editar_descricao" id="editar_descricao" value="{{produto[3]}}">
+                        <br>
+                        <input type="hidden" name="nomeAntigo" id="nomeAntigo" value="{{produto[1]}}">
+                        <input type="hidden" name="emailUsuario" value="{{email}}">
+                        <input type="submit" value="Salvar">
+                        <button type="button" id="cancelar-edicao">Cancelar</button>
+                </form>
+                {% endfor %}
+            {% endif %}
+        </div>
+        
+        <div id="formulario_senha">
+            <form action="/novaSenha" id="formMudarSenha" method="post">
+                <label for="novaSenha">Nova Senha</label>
+                <input type="password" name="novaSenha" id="novaSenha" placeholder="Digite a nova senha" required>
+                <label for="repetirNovaSenha">Repetir Senha</label>
+                <input type="password" name="repetirNovaSenha" id="repetirNovaSenha" placeholder="Repetir a senha"required>
+                <input type="hidden" name="emailUsuario" value="{{ email }}">
+                <div id="errosenha"></div>
+                <input type="submit" value="Salvar">
+            </form>
+        </div>
+
+        <div id="modal_apagarConta" class="modal_apagarConta">
+            <div class="modal-content">
+                <h4>Tem certeza que deseja apagar sua conta?</h4>
+                <p class="apagarAlerta">Essa opção é permanente e não pode ser desfeita.</p>
+                <div class="modal-buttons">
+                    <button id="cancelarApagarConta">Cancelar</button>
+                    <form action="/apagar_conta" method="post">
+                        <input type="hidden" name="emailUsuario" value="{{ email }}">
+                        <input type="submit" id="confirmarApagarConta" value="Confirmar">
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+
+    <script src="../static/javascript/vendedor.js"></script>
+
+    <script>
+        document.getElementById("foto_vendedor").addEventListener("click", function () {
+            if (this.src.includes("perfil.png")) {
+
+            } else {
+                if (confirm("Deseja alterar sua foto de perfil?")) {
+
+                } else {
+                    return
+                }
+            }
+
+            var modal = document.createElement("div");
+            modal.classList.add("modal");
+            modal.innerHTML = ` 
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <form action="/enviarFoto" enctype="multipart/form-data" method="post">
+                    <input type="file" name="foto" id="foto">
+                    <input type="hidden" name="emailUsuario" value="{{ email }}">
+                    <input type="hidden" name="rota" value="/perfilVendedor">
+                    <input type="submit" value="Enviar">
+                </form>
+            </div>
+        
+            `;
+            document.body.appendChild(modal);
+            var BotaoFechar = modal.querySelector(".close");
+            BotaoFechar.addEventListener("click", () => {
+                modal.remove()
+            })
+
+
+        })
+    </script>
+
+</body>
+
+</html>

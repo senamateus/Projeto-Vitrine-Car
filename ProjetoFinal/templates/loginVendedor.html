@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SL VITRINE CAR/LOGIN</title>
+    <link rel="stylesheet" href="../static/css/login.css">
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Página Inicial</a></li>
+                <li class="btncadastrar"><a href="/cadastrar">Cadastrar</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <h1 class="titulo">Olá, anunciante! Vamos acessar sua conta?</h1>
+
+    <form action="/acessoVendedor" method="post">
+        <h1>Login</h1>
+
+        {% set menssagens = get_flashed_messages() %}
+        {% if menssagens %}
+        <div id="alerta">
+            {{ menssagens[0] }} 
+        </div>
+        {% endif %}
+
+
+        <label for="emailvendedor">E-mail</label>
+        <input type="email" name="emailvendedor" id="emailvendedor" placeholder="Digite seu email" required>
+        <label for="senhavendedor">Senha</label>
+        <input type="password" name="senhavendedor" id="senhavendedor" placeholder="Digite sua senha" required>
+        <input type="submit" value="Entrar">
+    </form>
+
+</body>
+
+</html>

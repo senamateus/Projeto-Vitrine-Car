@@ -1,0 +1,19 @@
+@import url(home.css);
+
+#busca h2 {
+    font-family: "Arial Black", sans-serif; /* Use uma fonte elegante */
+    font-size: 28px; /* Tamanho do texto */
+    color: #d8a007; /* Cor do texto */
+    text-transform: uppercase; /* Transforma o texto em maiúsculas */
+    letter-spacing: 2px; /* Espaçamento entre as letras */
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3); /* Adiciona sombra ao texto */
+}
+
+#tituloh2{
+    font-family: "Arial Black", sans-serif; /* Use uma fonte elegante */
+    font-size: 28px; /* Tamanho do texto */
+    color: #d8a007; /* Cor do texto */
+    text-transform: uppercase; /* Transforma o texto em maiúsculas */
+    letter-spacing: 2px; /* Espaçamento entre as letras */
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3); /* Adiciona sombra ao texto */
+}
