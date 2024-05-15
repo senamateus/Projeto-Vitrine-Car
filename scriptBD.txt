@@ -1,0 +1,23 @@
+create database vendedores;
+
+CREATE TABLE vendedor(
+   id int(11) NOT NULL AUTO_INCREMENT,
+   email varchar(60) NOT NULL,
+   nome varchar(70) NOT NULL,
+   senha varchar(20) NOT NULL,
+   foto varchar(255) DEFAULT 'perfil.png',
+   telefone varchar(15) DEFAULT NULL,
+   PRIMARY KEY (id)
+ )
+
+CREATE TABLE produtos(
+   id int(11) NOT NULL AUTO_INCREMENT,
+   nome_produto varchar(60) DEFAULT NULL,
+   imagem varchar(100) DEFAULT 'fotoPadrao.jpg',
+   descricao varchar(200) DEFAULT NULL,
+   preco decimal(10,2) DEFAULT NULL,
+   vendedor_id int(11) DEFAULT NULL,
+   PRIMARY KEY (id),
+   KEY vendedor_id (vendedor_id),
+   FOREIGN KEY (vendedor_id) REFERENCES vendedor (id)
+ )
